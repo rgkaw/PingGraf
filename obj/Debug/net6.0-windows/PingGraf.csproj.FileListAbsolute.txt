@@ -1,0 +1,16 @@
+C:\Users\HJV_21\Source\repos\PingGraf\bin\Debug\net6.0-windows\PingGraf.exe
+C:\Users\HJV_21\Source\repos\PingGraf\bin\Debug\net6.0-windows\PingGraf.deps.json
+C:\Users\HJV_21\Source\repos\PingGraf\bin\Debug\net6.0-windows\PingGraf.runtimeconfig.json
+C:\Users\HJV_21\Source\repos\PingGraf\bin\Debug\net6.0-windows\PingGraf.dll
+C:\Users\HJV_21\Source\repos\PingGraf\bin\Debug\net6.0-windows\PingGraf.pdb
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.MainWindow.resources
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.csproj.GenerateResource.cache
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.AssemblyInfoInputs.cache
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.AssemblyInfo.cs
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.csproj.CoreCompileInputs.cache
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.dll
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\refint\PingGraf.dll
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.pdb
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.genruntimeconfig.cache
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\ref\PingGraf.dll

@@ -1,3 +1,6 @@
+
+using System.Net.NetworkInformation;
+
 namespace PingGraf
 {
     internal static class Program
@@ -12,6 +15,11 @@ namespace PingGraf
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainWindow());
+
+            
         }
+
+
     }
+
 }

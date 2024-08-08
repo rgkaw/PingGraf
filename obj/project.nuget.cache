@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zjZsua7mRIuYRWQvPLhg2h7IfQZmlghvxhipmjtcFaQcdKlfcbL/iUAVM/nb8cT5Se/8pcxCb27bcwfnujeIFw==",
+  "dgSpecHash": "08n5zEv6gHi/IvBfX7p6B5i4e1Oh2l+rTWzyJnnrGzxARYbmLc3XVRYmnByxdkuH1+cXvf9AGmHLRYs3NIRhkw==",
   "success": true,
   "projectFilePath": "C:\\Users\\HJV_21\\Source\\repos\\PingGraf\\PingGraf.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\HJV_21\\.nuget\\packages\\winforms.datavisualization\\1.9.2\\winforms.datavisualization.1.9.2.nupkg.sha512"
+  ],
   "logs": []
 }

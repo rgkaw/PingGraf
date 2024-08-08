@@ -10,8 +10,9 @@ namespace PingGraf
 {
     public class PingSender
     {
+        private Struct data = new Struct();
 
-        public async Task<PingResponse> SendPing(string who, int timeout = 5000)
+        public async Task<PingResponse> SendPing(string who, int timeout = 1000)
         {
             IPAddress ip = null;
             if (!System.Net.IPAddress.TryParse(who, out ip)) return new PingResponse();

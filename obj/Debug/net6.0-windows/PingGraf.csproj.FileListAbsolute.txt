@@ -14,3 +14,7 @@ C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\refint\PingGraf.d
 C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.pdb
 C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.genruntimeconfig.cache
 C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\ref\PingGraf.dll
+C:\Users\HJV_21\Source\repos\PingGraf\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\HJV_21\Source\repos\PingGraf\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.csproj.AssemblyReference.cache
+C:\Users\HJV_21\Source\repos\PingGraf\obj\Debug\net6.0-windows\PingGraf.csproj.CopyComplete

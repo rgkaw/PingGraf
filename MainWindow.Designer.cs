@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             splitContainer1 = new SplitContainer();
             panel4 = new Panel();
             panel3 = new Panel();
@@ -52,6 +52,18 @@
             tabPage2 = new TabPage();
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             label3 = new Label();
+            panel5 = new Panel();
+            SQVal = new Label();
+            SQLabel = new Label();
+            MAXVal = new Label();
+            MAX = new Label();
+            MINVal = new Label();
+            MIN = new Label();
+            AVGVal = new Label();
+            AVGLabel = new Label();
+            PLVal = new Label();
+            PLLabel = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -64,6 +76,8 @@
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            panel5.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -84,6 +98,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(panel5);
             splitContainer1.Panel2.Controls.Add(chart1);
             splitContainer1.Panel2.Controls.Add(label3);
             splitContainer1.Panel2.RightToLeft = RightToLeft.No;
@@ -275,17 +290,17 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chart1.Legends.Add(legend1);
-            chart1.Location = new Point(60, 21);
+            chartArea2.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chart1.Legends.Add(legend2);
+            chart1.Location = new Point(3, 3);
             chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart1.Series.Add(series1);
-            chart1.Size = new Size(912, 261);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chart1.Series.Add(series2);
+            chart1.Size = new Size(896, 309);
             chart1.TabIndex = 1;
             chart1.Text = "chart1";
             // 
@@ -298,6 +313,130 @@
             label3.TabIndex = 0;
             label3.Text = "label3";
             label3.Click += label3_Click_1;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(tableLayoutPanel1);
+            panel5.Location = new Point(906, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(122, 216);
+            panel5.TabIndex = 3;
+            // 
+            // SQVal
+            // 
+            SQVal.AutoSize = true;
+            SQVal.Location = new Point(61, 140);
+            SQVal.Name = "SQVal";
+            SQVal.Size = new Size(13, 15);
+            SQVal.TabIndex = 9;
+            SQVal.Text = "0";
+            // 
+            // SQLabel
+            // 
+            SQLabel.AutoSize = true;
+            SQLabel.Location = new Point(3, 140);
+            SQLabel.Name = "SQLabel";
+            SQLabel.Size = new Size(22, 15);
+            SQLabel.TabIndex = 8;
+            SQLabel.Text = "SQ";
+            // 
+            // MAXVal
+            // 
+            MAXVal.AutoSize = true;
+            MAXVal.Location = new Point(61, 105);
+            MAXVal.Name = "MAXVal";
+            MAXVal.Size = new Size(29, 15);
+            MAXVal.TabIndex = 7;
+            MAXVal.Text = "0ms";
+            // 
+            // MAX
+            // 
+            MAX.AutoSize = true;
+            MAX.Location = new Point(3, 105);
+            MAX.Name = "MAX";
+            MAX.Size = new Size(33, 15);
+            MAX.TabIndex = 6;
+            MAX.Text = "MAX";
+            // 
+            // MINVal
+            // 
+            MINVal.AutoSize = true;
+            MINVal.Location = new Point(61, 70);
+            MINVal.Name = "MINVal";
+            MINVal.Size = new Size(29, 15);
+            MINVal.TabIndex = 5;
+            MINVal.Text = "0ms";
+            // 
+            // MIN
+            // 
+            MIN.AutoSize = true;
+            MIN.Location = new Point(3, 70);
+            MIN.Name = "MIN";
+            MIN.Size = new Size(30, 15);
+            MIN.TabIndex = 4;
+            MIN.Text = "MIN";
+            // 
+            // AVGVal
+            // 
+            AVGVal.AutoSize = true;
+            AVGVal.Location = new Point(61, 35);
+            AVGVal.Name = "AVGVal";
+            AVGVal.Size = new Size(29, 15);
+            AVGVal.TabIndex = 3;
+            AVGVal.Text = "0ms";
+            // 
+            // AVGLabel
+            // 
+            AVGLabel.AutoSize = true;
+            AVGLabel.Location = new Point(3, 35);
+            AVGLabel.Name = "AVGLabel";
+            AVGLabel.Size = new Size(29, 15);
+            AVGLabel.TabIndex = 2;
+            AVGLabel.Text = "AVG";
+            // 
+            // PLVal
+            // 
+            PLVal.AutoSize = true;
+            PLVal.Location = new Point(61, 0);
+            PLVal.Name = "PLVal";
+            PLVal.Size = new Size(23, 15);
+            PLVal.TabIndex = 1;
+            PLVal.Text = "0%";
+            // 
+            // PLLabel
+            // 
+            PLLabel.AutoSize = true;
+            PLLabel.Location = new Point(3, 0);
+            PLLabel.Name = "PLLabel";
+            PLLabel.Size = new Size(20, 15);
+            PLLabel.TabIndex = 0;
+            PLLabel.Text = "PL";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(PLLabel, 0, 0);
+            tableLayoutPanel1.Controls.Add(PLVal, 1, 0);
+            tableLayoutPanel1.Controls.Add(AVGLabel, 0, 1);
+            tableLayoutPanel1.Controls.Add(AVGVal, 1, 1);
+            tableLayoutPanel1.Controls.Add(MIN, 0, 2);
+            tableLayoutPanel1.Controls.Add(MINVal, 1, 2);
+            tableLayoutPanel1.Controls.Add(MAX, 0, 3);
+            tableLayoutPanel1.Controls.Add(MAXVal, 1, 3);
+            tableLayoutPanel1.Controls.Add(SQLabel, 0, 4);
+            tableLayoutPanel1.Controls.Add(SQVal, 1, 4);
+            tableLayoutPanel1.Location = new Point(3, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 5;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.Size = new Size(116, 175);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -322,6 +461,9 @@
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            panel5.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -348,5 +490,17 @@
         private DataGridView dataGridView1;
         private Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Panel panel5;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label PLLabel;
+        private Label PLVal;
+        private Label AVGLabel;
+        private Label AVGVal;
+        private Label MIN;
+        private Label MINVal;
+        private Label MAX;
+        private Label MAXVal;
+        private Label SQLabel;
+        private Label SQVal;
     }
 }

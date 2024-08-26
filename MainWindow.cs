@@ -4,9 +4,15 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PingGraf
 {
-    
+
     public partial class MainWindow : Form
     {
+        int low = 0;
+        int high = 0;
+        int avg = 0;
+        double PL = 0;
+        private int queueSize = 100;
+        private int[] queuePercentile;
         private int tmp = 0;
         PingSender pinger = new PingSender();
         bool PingStatus = false;
@@ -18,21 +24,21 @@ namespace PingGraf
         Queue<int> queueX = new Queue<int>();
         Series seriesA = new Series();
         Queue<int> queue123 = new Queue<int>();
-        
-    public MainWindow()
+
+        public MainWindow()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            foreach (int i in Enumerable.Repeat(0, 100).ToArray()) {queue123.Enqueue(idx); idx++; };
+            foreach (int i in Enumerable.Repeat(0, 100).ToArray()) { queue123.Enqueue(idx); idx++; };
             idx = 0;
             chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
             chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
             chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
             chart1.ChartAreas[0].AxisX.IsMarksNextToAxis = true;
-         
+
 
             //Series seriesB = new Series();
             seriesA.Points.DataBindXY(queueX, queue);
@@ -45,6 +51,7 @@ namespace PingGraf
             chart1.Series.Clear();
             chart1.Series.Add(seriesA);
             //chart1.Series.Add(seriesB);
+            chart1.Legends.Clear();
 
         }
 
@@ -103,7 +110,8 @@ namespace PingGraf
                 {
                     string target = "8.8.8.8";
                     PingResponse res = await pinger.SendPing(target);
-                    tmp = (int)(res.Reply.Status == IPStatus.Success ? res.Reply.RoundtripTime : 0);
+                    tmp = (int)(res.Reply.Status == IPStatus.Success ? res.Reply.RoundtripTime : 1000);
+                    if (tmp == 0) { chart1.ChartAreas[0].AxisX.Maximum = queuePercentile[queuePercentile.Length-1]*2; }
                     queue.Enqueue(tmp);
                     queueX.Enqueue(idx);
                     idx++;
@@ -112,7 +120,24 @@ namespace PingGraf
                         queue.Dequeue();
                         queueX.Dequeue();
                     }
+                    queuePercentile = queue.ToArray<int>();
+                    if(idx < 200)
+                    {
+                        queuePercentile=queuePercentile.Skip(200 - idx).ToArray<int>();
+                    }
+                    Array.Sort(queuePercentile);
+                    MINVal.Text = (queuePercentile[0].ToString()+"ms");
+                    MAXVal.Text = (queuePercentile[queuePercentile.Length - 1].ToString() + "ms");
+                    AVGVal.Text = (((int)queuePercentile.Average()).ToString() + "ms");
+                    PLVal.Text = ((double)((int)queuePercentile.Count<int>(x => x == 1000) / (double)queuePercentile.Length)*100).ToString("0.##")+"%";
+                    SQVal.Text = ((idx-100).ToString());
                     
+                    //high = queuePercentile[queuePercentile.Length-1];
+                    //avg=(int) queuePercentile.Average();
+                    //PL = (double) ((int) queuePercentile.Count<int>(x => x==0)/ queuePercentile.Length);
+
+
+
                     seriesA.Points.DataBindXY(queueX, queue);
 
                     //chart1.ChartAreas[0].AxisY.Minimum = queue.Min() > 30 ? queue.Min() - 30 : 1;
@@ -121,7 +146,7 @@ namespace PingGraf
                     chart1.Update();
                     //label3.Text = res.Reply.RoundtripTime.ToString();
                     label3.Text = queue.ToArray().ToString();
-                    if(tmp>0) { panel4.BackColor = Color.Green; } else { panel4.BackColor = Color.Red; }
+                    if (tmp > 0) { panel4.BackColor = Color.Green; } else { panel4.BackColor = Color.Red; }
                     await Task.Delay(1000, cancellationToken);
                 }
             }

@@ -11,11 +11,18 @@ namespace PingGraf
     public class PingSender
     {
         private Struct data = new Struct();
+        private string _who;
+        private int _timeout;
+        public PingSender(string who, int timeout = 1000)
+        {
+            this._who = who;
+            this._timeout = timeout;
+        }
 
-        public async Task<PingResponse> SendPing(string who, int timeout = 1000)
+        public async Task<PingResponse> SendPing()
         {
             IPAddress ip = null;
-            if (!System.Net.IPAddress.TryParse(who, out ip)) return new PingResponse();
+            if (!System.Net.IPAddress.TryParse(_who, out ip)) return new PingResponse();
 
             Ping pingSender = new Ping();
             string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
@@ -24,7 +31,7 @@ namespace PingGraf
 
             try
             {
-                PingReply rep = await pingSender.SendPingAsync(who, timeout, buffer, options);
+                PingReply rep = await pingSender.SendPingAsync(_who, _timeout, buffer, options);
                 return new PingResponse() { Status = 1, Reply=rep };
 
             }
@@ -58,7 +65,7 @@ namespace PingGraf
     public class PingResponse
     {
         public int Status { get; set; } = 0;
-        public PingReply Reply { get; set;}
+        public PingReply Reply { get; set; }
         
     }
 

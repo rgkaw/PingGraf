@@ -36,7 +36,8 @@ namespace PingGraf
 
             }
             catch (Exception ex) 
-            { 
+            {
+                MessageBox.Show(ex.Message,"ping error");
                 return new PingResponse();
             }
 

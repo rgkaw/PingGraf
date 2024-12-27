@@ -1,4 +1,5 @@
-﻿namespace PingGraf
+﻿
+namespace PingGraf
 {
     partial class MainWindow
     {
@@ -49,7 +50,6 @@
             button3 = new Button();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            TimeoutBox = new TextBox();
             label4 = new Label();
             label2 = new Label();
             TargetAddressBox = new TextBox();
@@ -57,13 +57,15 @@
             button1 = new Button();
             button2 = new Button();
             IntervalBox = new NumericUpDown();
+            TimeoutBox = new NumericUpDown();
             panel1 = new Panel();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            dataGridView1 = new DataGridView();
             tabPage2 = new TabPage();
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             label3 = new Label();
+            SaveFileCheckBox = new CheckBox();
+            FileLocLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -74,10 +76,10 @@
             panel2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)IntervalBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TimeoutBox).BeginInit();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             SuspendLayout();
             // 
@@ -104,7 +106,7 @@
             splitContainer1.Panel2.Controls.Add(label3);
             splitContainer1.Panel2.RightToLeft = RightToLeft.No;
             splitContainer1.RightToLeft = RightToLeft.No;
-            splitContainer1.Size = new Size(1040, 457);
+            splitContainer1.Size = new Size(920, 457);
             splitContainer1.SplitterDistance = 138;
             splitContainer1.TabIndex = 0;
             // 
@@ -252,7 +254,7 @@
             // 
             button3.Location = new Point(0, -2);
             button3.Name = "button3";
-            button3.Size = new Size(83, 119);
+            button3.Size = new Size(83, 129);
             button3.TabIndex = 0;
             button3.Text = "Start";
             button3.UseVisualStyleBackColor = true;
@@ -272,7 +274,6 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.68116F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 62.31884F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 55F));
-            tableLayoutPanel2.Controls.Add(TimeoutBox, 1, 2);
             tableLayoutPanel2.Controls.Add(label4, 0, 2);
             tableLayoutPanel2.Controls.Add(label2, 0, 1);
             tableLayoutPanel2.Controls.Add(TargetAddressBox, 1, 0);
@@ -280,6 +281,7 @@
             tableLayoutPanel2.Controls.Add(button1, 2, 1);
             tableLayoutPanel2.Controls.Add(button2, 2, 2);
             tableLayoutPanel2.Controls.Add(IntervalBox, 1, 1);
+            tableLayoutPanel2.Controls.Add(TimeoutBox, 1, 2);
             tableLayoutPanel2.Location = new Point(3, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 3;
@@ -290,15 +292,6 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Size = new Size(391, 124);
             tableLayoutPanel2.TabIndex = 2;
-            // 
-            // TimeoutBox
-            // 
-            TimeoutBox.Location = new Point(129, 83);
-            TimeoutBox.Name = "TimeoutBox";
-            TimeoutBox.Size = new Size(196, 23);
-            TimeoutBox.TabIndex = 6;
-            TimeoutBox.WordWrap = false;
-            TimeoutBox.KeyPress += IntBox_KeyPress;
             // 
             // label4
             // 
@@ -365,11 +358,21 @@
             // 
             IntervalBox.Location = new Point(129, 43);
             IntervalBox.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
-            IntervalBox.Minimum = new decimal(new int[] { 100, 0, 0, 0 });
+            IntervalBox.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             IntervalBox.Name = "IntervalBox";
             IntervalBox.Size = new Size(196, 23);
             IntervalBox.TabIndex = 9;
             IntervalBox.Value = new decimal(new int[] { 100, 0, 0, 0 });
+            // 
+            // TimeoutBox
+            // 
+            TimeoutBox.Location = new Point(129, 83);
+            TimeoutBox.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            TimeoutBox.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            TimeoutBox.Name = "TimeoutBox";
+            TimeoutBox.Size = new Size(196, 23);
+            TimeoutBox.TabIndex = 10;
+            TimeoutBox.Value = new decimal(new int[] { 100, 0, 0, 0 });
             // 
             // panel1
             // 
@@ -391,7 +394,8 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(dataGridView1);
+            tabPage1.Controls.Add(FileLocLabel);
+            tabPage1.Controls.Add(SaveFileCheckBox);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -399,15 +403,6 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "SaveFile";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(250, 96);
-            dataGridView1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -431,7 +426,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chart1.Series.Add(series1);
-            chart1.Size = new Size(896, 309);
+            chart1.Size = new Size(913, 309);
             chart1.TabIndex = 1;
             chart1.Text = "chart1";
             // 
@@ -445,14 +440,33 @@
             label3.Text = "label3";
             label3.Click += label3_Click_1;
             // 
+            // SaveFileCheckBox
+            // 
+            SaveFileCheckBox.AutoSize = true;
+            SaveFileCheckBox.Location = new Point(6, 2);
+            SaveFileCheckBox.Name = "SaveFileCheckBox";
+            SaveFileCheckBox.Size = new Size(71, 19);
+            SaveFileCheckBox.TabIndex = 1;
+            SaveFileCheckBox.Text = "Save File";
+            SaveFileCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // FileLocLabel
+            // 
+            FileLocLabel.AutoSize = true;
+            FileLocLabel.Location = new Point(6, 24);
+            FileLocLabel.Name = "FileLocLabel";
+            FileLocLabel.Size = new Size(77, 15);
+            FileLocLabel.TabIndex = 2;
+            FileLocLabel.Text = "File Location:";
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1040, 457);
+            ClientSize = new Size(920, 457);
             Controls.Add(splitContainer1);
             Name = "MainWindow";
-            Text = "Form1";
+            Text = "PingGraf";
             Load += Form1_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
@@ -467,10 +481,11 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)IntervalBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TimeoutBox).EndInit();
             panel1.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
         }
@@ -481,7 +496,6 @@
         private Panel panel1;
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel2;
-        private TextBox TimeoutBox;
         private Label label4;
         private Label label2;
         private TextBox TargetAddressBox;
@@ -494,7 +508,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private DataGridView dataGridView1;
         private Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Panel panel5;
@@ -510,5 +523,8 @@
         private Label SQLabel;
         private Label SQVal;
         private NumericUpDown IntervalBox;
+        private NumericUpDown TimeoutBox;
+        private Label FileLocLabel;
+        private CheckBox SaveFileCheckBox;
     }
 }

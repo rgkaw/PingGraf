@@ -1,6 +1,3 @@
-
-using System.Net.NetworkInformation;
-
 namespace PingGraf
 {
     internal static class Program
